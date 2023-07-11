@@ -29,6 +29,7 @@ export default function App() {
     return (
         <div>
             <main className="fade-in">
+                <h1 className="sr-only">Card Details Form</h1>
                 <Cards formData={formData}/>
                 {isFormValid
                     ? <Complete resetFormData={resetFormData} setIsFormValid={setIsFormValid}/>
