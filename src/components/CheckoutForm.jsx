@@ -37,7 +37,7 @@ const CheckoutForm = ({onInputData, setIsFormValid}) => {
                         </div>
                         <div className="input-control">
                             <label className="input-control__label" htmlFor="cardNumber">card number</label>
-                            <Field value={props.values.cardNumber}
+                            <Field inputmode="numeric" value={props.values.cardNumber}
                                    onChange={(e) => {
                                        onInputData(e.currentTarget.name, e.currentTarget.value);
                                        props.handleChange(e)
@@ -51,7 +51,7 @@ const CheckoutForm = ({onInputData, setIsFormValid}) => {
                             <label className="input-control__label" htmlFor="cvc" aria-hidden="true">cvc</label>
                             <div className="input-grid__group">
                                 <div className="input-control">
-                                    <Field value={props.values.month}
+                                    <Field inputmode="numeric" value={props.values.month}
                                            onChange={(e) => {
                                                onInputData(e.currentTarget.name, e.currentTarget.value);
                                                props.handleChange(e)
@@ -60,7 +60,7 @@ const CheckoutForm = ({onInputData, setIsFormValid}) => {
                                         <ErrorMessage className="input-control__error" name="month" component="span"/>
                                 </div>
                                 <div className="input-control">
-                                    <Field value={props.values.year}
+                                    <Field inputmode="numeric" value={props.values.year}
                                            onChange={(e) => {
                                                onInputData(e.currentTarget.name, e.currentTarget.value);
                                                props.handleChange(e)
@@ -70,7 +70,7 @@ const CheckoutForm = ({onInputData, setIsFormValid}) => {
                                 </div>
                             </div>
                             <div className="input-control">
-                                <Field value={props.values.cvc}
+                                <Field inputmode="numeric" value={props.values.cvc}
                                        onChange={(e) => {
                                            onInputData(e.currentTarget.name, e.currentTarget.value);
                                            props.handleChange(e)
