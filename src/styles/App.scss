@@ -96,7 +96,8 @@ body {
   top: 2rem;
   background-image: url("../assets/images/bg-card-back.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  border-radius: .5rem;
   display: inline-block;
   height: 9.85rem;
   width: 18.75rem;
@@ -252,6 +253,7 @@ body {
     left: -1.6rem;
     top: -4.95rem;
     animation: 1s slideInLeft;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 18px 50px -10px;
 
     &__logo {
       left: 2rem;
@@ -284,6 +286,7 @@ body {
     left: 4.3rem;
     top: 12.6rem;
     animation: 1.5s slideInLeft;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 18px 50px -10px;
 
     &__cvc {
       top: 6.845rem;
