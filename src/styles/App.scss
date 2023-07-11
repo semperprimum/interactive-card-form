@@ -1,0 +1,334 @@
+$gradient-active: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+$clr-primary-red: hsl(0, 100%, 66%);
+
+$clr-neutral-100: hsl(0, 0%, 100%);
+$clr-neutral-200: hsl(270, 3%, 87%);
+$clr-neutral-300: hsl(279, 6%, 55%);
+$clr-neutral-400: hsl(278, 68%, 11%);
+
+$fs-body: 1.125rem;
+
+$ff-primary: 'Space Grotesk', sans-serif;
+
+$fw-regular: 500;
+
+// Utility classes & functions start
+.attribution {
+  position: static;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding: 1rem 0 1rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: hsla(230, 8%, 15%, 0.8);
+
+  a {
+    color: hsla(230, 8%, 15%, 0.6);
+    transition: 0.2s ease;
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:active {
+    color: hsla(230, 8%, 15%, 0.4);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 1.5s;
+  -webkit-animation: fade-in 1.5s;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@function hslac($color, $alpha) {
+  @if (type-of($color) == "color") {
+    @return hsla(hue($color), saturation($color), lightness($color), $alpha);
+  } @else {
+    @error "You didn't pass a color object";
+  }
+}
+
+// Utility classes & functions end
+
+body {
+  font-family: $ff-primary;
+  font-size: $fs-body;
+  font-weight: $fw-regular;
+
+  min-height: 100vh;
+  background-image: url("../assets/images/bg-main-mobile.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cards-section {
+  position: relative;
+  max-width: 21.5rem;
+  height: 20.1rem;
+  margin-inline: auto;
+}
+
+.card-back {
+  position: absolute;
+  right: -.8rem;
+  top: 2rem;
+  background-image: url("../assets/images/bg-card-back.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  height: 9.85rem;
+  width: 18.75rem;
+
+  &__cvc {
+    position: absolute;
+    right: 3.3rem;
+    top: 4.4rem;
+    font-size: .65rem;
+    color: $clr-neutral-100;
+  }
+}
+
+.card-front {
+  position: absolute;
+  top: 7.85rem;
+  background-image: url("../assets/images/bg-card-front.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 9.85rem;
+  width: 18.75rem;
+
+  &__logo {
+    position: absolute;
+    left: 1.3rem;
+    top: .6rem;
+
+    svg {
+      max-width: 3.43rem;
+    }
+  }
+
+  &__number {
+    color: $clr-neutral-100;
+    position: absolute;
+    bottom: 2.95rem;
+    left: 1.2rem;
+    letter-spacing: .14rem;
+  }
+
+  &__info {
+    color: $clr-neutral-100;
+    display: flex;
+    justify-content: space-between;
+    width: 15.3rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 1.2rem;
+    bottom: 1.175rem;
+    font-size: .7rem;
+  }
+}
+
+.form-wrapper {
+  padding: .45rem 1.5rem;
+  background: $clr-neutral-100;
+}
+
+.input-control {
+  margin-bottom: 1.1rem;
+
+  &__label {
+    display: block;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .09rem;
+    margin-bottom: .4rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem 0.885rem;
+    border-radius: .5rem;
+    color: $clr-neutral-300;
+    border: .075rem solid $clr-neutral-200;
+    outline: none;
+
+    &:active,
+    &:focus-visible {
+      border-color: hsl(278, 94%, 30%);
+    }
+  }
+
+  &__error {
+    display: block;
+    color: $clr-primary-red;
+    font-size: .65rem;
+    margin-top: .35rem;
+  }
+}
+
+.input-grid {
+  $gap: .5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: $gap;
+
+  &__group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: $gap;
+  }
+}
+
+.btn {
+  color: $clr-neutral-100;
+  background-color: $clr-neutral-400;
+  border-radius: .5rem;
+  margin-top: .45rem;
+  border: none;
+  width: 100%;
+  padding-block: .8rem;
+}
+
+.complete-section {
+  padding: .45rem 1.5rem;
+  text-align: center;
+
+  &__heading {
+    text-transform: uppercase;
+    margin-top: 1.75rem;
+    letter-spacing: .2rem;
+  }
+
+  &__body {
+    color: $clr-neutral-300;
+    margin-top: .75rem;
+    margin-bottom: 2.35rem;
+  }
+}
+
+@media only screen and (min-width: 53.75em) {
+  body {
+    position: relative;
+    background-image: url("../assets/images/bg-main-desktop.png");
+    background-position: left;
+    display: grid;
+    place-items: center;
+  }
+  main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 66.25rem;
+    gap: 11rem;
+  }
+  .cards-section {
+    position: static;
+  }
+  .card-front {
+    width: 28.125rem;
+    height: 15.3125rem;
+    left: -1.6rem;
+    top: -4.95rem;
+    animation: 1s slideInLeft;
+
+    &__logo {
+      left: 2rem;
+      top: 1.7rem;
+
+      svg {
+        max-width: 5.3125rem;
+      }
+    }
+
+    &__number {
+      font-size: 1.75rem;
+      letter-spacing: .21rem;
+      bottom: 4.2rem;
+      left: 2rem;
+    }
+
+    &__info {
+      width: 24rem;
+      font-size: .85rem;
+      letter-spacing: .14rem;
+      left: 2rem;
+      bottom: 1.6rem;
+    }
+  }
+  .card-back {
+    width: 28.125rem;
+    height: 15.3125rem;
+    right: auto;
+    left: 4.3rem;
+    top: 12.6rem;
+    animation: 1.5s slideInLeft;
+
+    &__cvc {
+      top: 6.845rem;
+      right: 3.8rem;
+      font-size: .9rem;
+      letter-spacing: .1rem;
+    }
+  }
+  .form-wrapper {
+    margin-right: .85rem;
+    background: transparent;
+  }
+  .input-control {
+    margin-bottom: 1.5rem;
+  }
+  .btn {
+    margin-top: 1rem;
+  }
+.complete-section {
+  width: 26.85rem;
+
+  &__icon {
+    margin-top: .5rem;
+  }
+
+  &__heading {
+    margin-top: 1.6rem;
+  }
+
+  &__body {
+    margin-bottom: 1.9rem;
+  }
+}
+
+.attribution {
+  position: fixed;
+}
+}
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translatex(-300%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
